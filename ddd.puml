@@ -1,0 +1,13 @@
+@startuml
+!define Root 聚合根
+!define ValueObject 值对象
+!define Entity 实体
+!define Repository 仓库
+!define Event 事件
+!define Service 服务
+!define Factory 工厂
+!define Subscriber 事件订阅器
+
+!define C (C,#ADD1B2)
+!define I (I,MediumPurple)
+@enduml
