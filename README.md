@@ -18,21 +18,21 @@
 
 ## 使用
 
-目前主要提供通过类图的 "<<" 和 ">>" 关键字来标识出 DDD 中的模型类型，后期还会针对每种模型类型增加自定义的显示风格。
+通过下面提供的这些命令方法即可以创建出指定的领域模型。
 
 
 
-**当前支持的模型类型**
+**当前支持的模型创建方法**
 
-| 类型          | 显示值  |
-| ----------- | ---- |
-| Root        | 聚合根  |
-| ValueObject | 值对象  |
-| Entity      | 实体   |
-| Repository  | 仓库   |
-| Event       | 事件   |
-| Service     | 服务   |
-| Factory     | 工厂   |
+| 方法                                       | 用途      |
+| ---------------------------------------- | ------- |
+| dddRoot(name, label = null, type = class) | 创建聚合根模型 |
+| dddValueObject(name, label = null, type = class) | 创建值对象模型 |
+| dddEntity(name, label = null, type = class) | 创建实体模型  |
+| dddRepository(name, label = null, type = interface) | 创建仓库模型  |
+| dddEvent(name, label = null, type = class) | 创建事件模型  |
+| dddService(name, label = null, type = class) | 创建服务模型  |
+| dddFactory(name, label = null, type = class) | 创建工厂模型  |
 
 
 
@@ -42,9 +42,37 @@
 @startuml
 !includeurl https://elvis-bi.github.io/pumlstyle/ddd.puml
 
-' 通过 <<Root>> 标识当前创建的 class 是一个 DDD 中的聚合根模型
-' 在图形渲染的时候这个 class 会被标识为"聚合根"
-class Abc <<Root>>
+
+' 创建聚合根模型
+dddRoot(root1)
+
+' 创建聚合根并指定显示名称和内部结构
+dddRoot(root2, "我是聚合根") {
+    String name
+}
+
+' 创建值对象模型
+dddValueObject(valueObject)
+
+' 创建实体模型
+dddEntity(我是实体)
+
+' 创建仓库模型
+dddRepository(repository)
+
+' 创建领域事件模型
+dddEvent(event)
+
+' 创建领域服务模型
+dddService(领域服务)
+
+' 创建工厂模型
+dddFactory(工厂)
+
+root1 --> valueObject
+root1 -> 我是实体
+repository -> root1
+
 @enduml
 ```
 

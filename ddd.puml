@@ -1,13 +1,78 @@
 @startuml
-!define Root 聚合根
-!define ValueObject 值对象
-!define Entity 实体
-!define Repository 仓库
-!define Event 事件
-!define Service 服务
-!define Factory 工厂
-!define Subscriber 事件订阅器
+
+/' Creates an aliased entity with a colorized sprite and stereotype
+Params:
+    e_type:     the entity type (e.g. component, node, agent, etc.)
+    e_alias:    the alias to give the entity
+    e_stereo:   the stereotype, which can define additional styling '/
+!define PUML_ENTITY(e_type,e_alias,e_stereo) e_type e_alias <<e_stereo>>
+
+/' Creates an aliased entity with a colorized sprite, label, and stereotype
+Params:
+    e_type:     the entity type (e.g. component, node, agent, etc.)
+    e_label:    the label to display under the sprite
+    e_alias:    the alias to give the entity
+    e_stereo:   the stereotype, which can define additional styling '/
+!define PUML_ENTITY(e_type,e_label,e_alias,e_stereo) e_type "e_label" as e_alias <<e_stereo>>
+
+
+!define dddRootType 聚合根
+!define dddRoot(alias) PUML_ENTITY(class, alias, dddRootType)
+!define dddRoot(alias, label, e_type="class") PUML_ENTITY(e_type, label, alias, dddRootType)
+
+
+!define dddValueObjectType 值对象
+!define dddValueObject(alias) PUML_ENTITY(class, alias, dddValueObjectType)
+!define dddValueObject(alias, label, e_type="class") PUML_ENTITY(e_type, label, alias, dddValueObjectType)
+
+!define dddEntityType 实体
+!define dddEntity(alias) PUML_ENTITY(class, alias, dddEntityType)
+!definelong dddEntity(alias, label, e_type="class")
+    PUML_ENTITY(e_type, label, alias, dddEntityType)
+!enddefinelong
+
+!define dddRepositoryType 仓库
+!define dddRepository(alias) PUML_ENTITY(interface, alias, dddRepositoryType)
+!definelong dddRepository(alias, label, e_type="interface")
+    PUML_ENTITY(e_type, label, alias, dddRepositoryType)
+!enddefinelong
+
+!define dddEventType 事件
+!define dddEvent(alias) PUML_ENTITY(class, alias, dddEventType)
+!definelong dddEvent(alias, label, e_type="class")
+    PUML_ENTITY(e_type, label, alias, dddEventType)
+!enddefinelong
+
+!define dddServiceType 服务
+!define dddService(alias) PUML_ENTITY(class, alias, dddServiceType)
+!definelong dddService(alias, label, e_type="class")
+    PUML_ENTITY(e_type, label, alias, dddServiceType)
+!enddefinelong
+
+!define dddFactoryType 工厂
+!define dddFactory(alias) PUML_ENTITY(class, alias, dddFactoryType)
+!definelong dddFactory(alias, label, e_type="interface")
+    PUML_ENTITY(e_type, label, alias, dddFactoryType)
+!enddefinelong
+
+!define dddSubscriber 事件订阅器
 
 !define C (C,#ADD1B2)
 !define I (I,MediumPurple)
+
+skinparam class<<dddRootType>> {
+    BackgroundColor Orange
+    BorderColor OrangeRed
+    FontSize 18
+}
+
+skinparam class<<dddValueObjectType>> {
+    BackgroundColor DarkSeaGreen
+    BorderColor Green
+}
+
+skinparam class<<dddEntityType>> {
+    BackgroundColor LightBlue
+    BorderColor Blue
+}
 @enduml
