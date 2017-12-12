@@ -24,7 +24,7 @@ Params:
 !define dddSupportingDomainType 支撑子域
 !define dddSupportingDomain(alias) PUML_ENTITY(package, alias, dddSupportingDomainType)
 
-!define dddGenericDomainType 支撑子域
+!define dddGenericDomainType 通用子域
 !define dddGenericDomain(alias) PUML_ENTITY(package, alias, dddGenericDomainType)
 
 !define dddRootType 聚合根
