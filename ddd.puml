@@ -15,6 +15,17 @@ Params:
     e_stereo:   the stereotype, which can define additional styling '/
 !define PUML_ENTITY(e_type,e_label,e_alias,e_stereo) e_type "e_label" as e_alias <<e_stereo>>
 
+!define dddContextType 上下文
+!define dddContext(alias) PUML_ENTITY(package, alias, dddContextType)
+
+!define dddCoreDomainType 核心域
+!define dddCoreDomain(alias) PUML_ENTITY(package, alias, dddCoreDomainType)
+
+!define dddSupportingDomainType 支撑子域
+!define dddSupportingDomain(alias) PUML_ENTITY(package, alias, dddSupportingDomainType)
+
+!define dddGenericDomainType 支撑子域
+!define dddGenericDomain(alias) PUML_ENTITY(package, alias, dddGenericDomainType)
 
 !define dddRootType 聚合根
 !define dddRoot(alias) PUML_ENTITY(class, alias, dddRootType)
@@ -62,6 +73,12 @@ Params:
 
 skinparam class<<dddRootType>> {
     BackgroundColor Orange
+    BorderColor OrangeRed
+    FontSize 18
+}
+
+skinparam package<<dddCoreDomainType>> {
+    BackgroundColor LightYellow
     BorderColor OrangeRed
     FontSize 18
 }

@@ -1,0 +1,16 @@
+@startuml
+!include ../ddd.puml
+
+dddContext(营销) {
+    dddRoot(测试聚合)
+}
+
+dddCoreDomain(一个核心域) {
+}
+
+dddSupportingDomain(一个支撑域) {
+}
+
+dddGenericDomain(一个能用域) {
+}
+@enduml
