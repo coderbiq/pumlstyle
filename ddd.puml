@@ -42,19 +42,19 @@ Params:
     PUML_ENTITY(e_type, label, alias, dddEntityType)
 !enddefinelong
 
-!define dddRepositoryType 仓库
+!define dddRepositoryType 资源库
 !define dddRepository(alias) PUML_ENTITY(interface, alias, dddRepositoryType)
 !definelong dddRepository(alias, label, e_type="interface")
     PUML_ENTITY(e_type, label, alias, dddRepositoryType)
 !enddefinelong
 
-!define dddEventType 事件
+!define dddEventType 领域事件
 !define dddEvent(alias) PUML_ENTITY(class, alias, dddEventType)
 !definelong dddEvent(alias, label, e_type="class")
     PUML_ENTITY(e_type, label, alias, dddEventType)
 !enddefinelong
 
-!define dddServiceType 服务
+!define dddServiceType 领域服务
 !define dddService(alias) PUML_ENTITY(class, alias, dddServiceType)
 !definelong dddService(alias, label, e_type="class")
     PUML_ENTITY(e_type, label, alias, dddServiceType)
